@@ -1,0 +1,113 @@
+<svg viewBox="0 0 720 820" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="glow" cx="62%" cy="30%" r="60%">
+    <stop offset="0%" stop-color="#CC9833" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#CC9833" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1.3" fill="#E3BE66" opacity="0.16"/>
+  </pattern>
+  <linearGradient id="goldline" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#E3BE66"/>
+    <stop offset="100%" stop-color="#CC9833"/>
+  </linearGradient>
+</defs>
+
+<rect width="720" height="820" fill="url(#grid)"/>
+<circle cx="470" cy="230" r="330" fill="url(#glow)"/>
+
+<!-- Anneau doré (écho du logo REVO) -->
+<circle cx="470" cy="230" r="176" fill="none" stroke="url(#goldline)" stroke-width="26" stroke-dasharray="820 120" stroke-linecap="round" transform="rotate(-38 470 230)" opacity="0.9"/>
+
+<!-- Grue de chantier, linework fin -->
+<g stroke="#E3BE66" stroke-width="2.5" fill="none" opacity="0.85" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="592" y1="760" x2="592" y2="120"/>
+  <line x1="592" y1="120" x2="486" y2="150"/>
+  <line x1="592" y1="120" x2="656" y2="140"/>
+  <line x1="592" y1="146" x2="540" y2="136"/>
+  <line x1="592" y1="146" x2="620" y2="131"/>
+  <line x1="516" y1="144" x2="516" y2="220"/>
+</g>
+
+<!-- Lignes de cote (annotations plan) -->
+<g stroke="#E3BE66" stroke-width="1.4" opacity="0.5">
+  <line x1="90" y1="640" x2="90" y2="700" stroke-dasharray="4 5"/>
+  <line x1="470" y1="640" x2="470" y2="700" stroke-dasharray="4 5"/>
+  <line x1="90" y1="670" x2="470" y2="670"/>
+  <line x1="90" y1="663" x2="90" y2="677"/>
+  <line x1="470" y1="663" x2="470" y2="677"/>
+</g>
+
+<!-- Toiture -->
+<polygon points="80,470 280,360 480,470" fill="none" stroke="url(#goldline)" stroke-width="6" stroke-linejoin="round"/>
+<!-- Débord de toit -->
+<line x1="60" y1="472" x2="500" y2="472" stroke="#CC9833" stroke-width="6" stroke-linecap="round"/>
+
+<!-- Corps de la maison -->
+<rect x="100" y="472" width="360" height="230" fill="none" stroke="url(#goldline)" stroke-width="5"/>
+
+<!-- Terrasse / soubassement -->
+<line x1="80" y1="702" x2="480" y2="702" stroke="#CC9833" stroke-width="5" stroke-linecap="round"/>
+
+<!-- Porte -->
+<rect x="255" y="590" width="58" height="112" fill="none" stroke="#E3BE66" stroke-width="3.5"/>
+<circle cx="298" cy="648" r="3" fill="#E3BE66"/>
+
+<!-- Fenêtres persiennes (louvres, esprit créole) -->
+<g stroke="#E3BE66" stroke-width="2.5">
+  <rect x="132" y="520" width="70" height="86" fill="none" stroke-width="3.5"/>
+  <line x1="132" y1="537" x2="202" y2="537"/>
+  <line x1="132" y1="554" x2="202" y2="554"/>
+  <line x1="132" y1="571" x2="202" y2="571"/>
+  <line x1="132" y1="588" x2="202" y2="588"/>
+
+  <rect x="358" y="520" width="70" height="86" fill="none" stroke-width="3.5"/>
+  <line x1="358" y1="537" x2="428" y2="537"/>
+  <line x1="358" y1="554" x2="428" y2="554"/>
+  <line x1="358" y1="571" x2="428" y2="571"/>
+  <line x1="358" y1="588" x2="428" y2="588"/>
+</g>
+
+<!-- Lucarne / ligne de faîtage -->
+<line x1="280" y1="360" x2="280" y2="398" stroke="#CC9833" stroke-width="4" stroke-linecap="round"/>
+
+<!-- Échafaudage latéral -->
+<g stroke="#E3BE66" stroke-width="2" opacity="0.7">
+  <line x1="500" y1="702" x2="500" y2="430"/>
+  <line x1="548" y1="702" x2="548" y2="430"/>
+  <line x1="500" y1="430" x2="548" y2="430"/>
+  <line x1="500" y1="500" x2="548" y2="500"/>
+  <line x1="500" y1="570" x2="548" y2="570"/>
+  <line x1="500" y1="640" x2="548" y2="640"/>
+  <line x1="500" y1="430" x2="548" y2="500"/>
+  <line x1="500" y1="500" x2="548" y2="430"/>
+  <line x1="500" y1="500" x2="548" y2="570"/>
+  <line x1="500" y1="570" x2="548" y2="500"/>
+  <line x1="500" y1="570" x2="548" y2="640"/>
+  <line x1="500" y1="640" x2="548" y2="570"/>
+</g>
+
+<!-- Truelle (outil), coin bas-gauche -->
+<g transform="translate(50,712) rotate(-15)" stroke="#E3BE66" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+  <path d="M4 0 L46 0 L38 26 L12 26 Z"/>
+  <line x1="25" y1="26" x2="25" y2="44"/>
+  <rect x="15" y="44" width="20" height="9" rx="4"/>
+</g>
+
+<!-- Niveau à bulle, accent flottant -->
+<g transform="translate(555,600) rotate(-8)" stroke="#E3BE66" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+  <rect x="0" y="0" width="90" height="16" rx="3"/>
+  <circle cx="45" cy="8" r="5"/>
+  <line x1="18" y1="0" x2="18" y2="16"/>
+  <line x1="72" y1="0" x2="72" y2="16"/>
+</g>
+
+<!-- Particules -->
+<g fill="#E3BE66" opacity="0.55">
+  <circle cx="130" cy="200" r="2.4"/>
+  <circle cx="600" cy="330" r="2"/>
+  <circle cx="55" cy="360" r="1.8"/>
+  <circle cx="640" cy="600" r="2.2"/>
+  <circle cx="350" cy="120" r="1.6"/>
+</g>
+</svg>

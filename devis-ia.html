@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Demande de Devis — Estimation Travaux Martinique | REVO TRAVAUX</title>
+<meta name="description" content="Obtenez une étude de devis gratuite pour vos travaux de rénovation en Martinique. Formulaire simple et rapide, réponse sous 24h.">
+<link rel="canonical" href="https://revotravaux.fr/devis-ia.html">
+<meta property="og:title" content="Demande de Devis — REVO TRAVAUX Martinique">
+<meta property="og:description" content="Étude de devis gratuite pour vos travaux en Martinique.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://revotravaux.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="geo.region" content="MQ">
+<meta name="geo.placename" content="Martinique">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:16px}
+body{font-family:'Plus Jakarta Sans','DM Sans',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{cursor:pointer;border:none;background:none;font-family:inherit}ul,ol{list-style:none}input,textarea,select{font-family:inherit;font-size:inherit}
+:root{
+--gold:#CC9833;--gold-l:#E3BE66;--gold-d:#9C761F;
+--dark:#000000;--dark-2:#171717;--white:#FFFFFF;
+--cream:#FAF8F5;--cream-2:#F5F2ED;--warm:#EDE8E0;--sand:#F5EEDC;--sand-ink:#2B2417;
+--text:#000000;--text-2:#5C544A;--muted:#9A9088;
+--border:rgba(0,0,0,0.08);
+--radius:10px;--radius-lg:16px;--radius-xl:24px;
+--shadow:0 4px 20px rgba(0,0,0,0.06);--shadow-lg:0 12px 40px rgba(0,0,0,0.1);
+--font-heading:'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;
+--font-body:'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;
+--container:1120px;--section-pad:104px;--section-pad-sm:72px;
+}
+/* ── SIGNATURE : identité visuelle (inspirée des créas Instagram) ─
+   Mot-clé surligné en bloc plein, bandeau d'icônes séparées par
+   des traits, cartes "feed" avec dégradé bas + titre sur l'image,
+   pilule de contact pleine largeur. ────────────────────────────── */
+.highlight{display:inline-block;background:rgba(204,152,51,0.75);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:#0A0906;padding:2px 12px;border-radius:6px;font-weight:800}
+h1 .highlight,h2 .highlight{line-height:1.15}
+
+.icon-strip{display:flex;align-items:stretch;justify-content:space-between;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:22px 8px}
+.icon-strip-item{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:0 10px;position:relative}
+.icon-strip-item:not(:last-child)::after{content:'';position:absolute;right:0;top:10%;bottom:10%;width:1px;background:var(--border)}
+.icon-strip-item svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.icon-strip-item span{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-2)}
+@media(max-width:700px){.icon-strip{flex-wrap:wrap}.icon-strip-item{flex:1 1 40%;padding:10px}.icon-strip-item:not(:last-child)::after{display:none}}
+
+.feed-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/5;display:block;background:var(--dark-2)}
+.feed-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.feed-card:hover img{transform:scale(1.06)}
+.feed-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,transparent 35%,rgba(0,0,0,0.94) 100%);z-index:1}
+.feed-card-body{position:absolute;left:0;right:0;bottom:0;padding:20px;z-index:2}
+.feed-card-label{display:inline-flex;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.95);margin-bottom:8px;padding:4px 10px;border-radius:50px;background:rgba(0,0,0,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15)}
+.feed-card-title{font-family:var(--font-heading);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.25;text-shadow:0 2px 10px rgba(0,0,0,0.6)}
+
+.pill-contact{display:flex;align-items:center;gap:0;background:var(--gold);border-radius:50px;overflow:hidden;max-width:460px;margin:0 auto}
+.pill-contact-txt{flex:1;display:flex;align-items:center;gap:10px;padding:14px 20px;color:#0A0906;font-weight:700;font-size:0.9rem}
+.pill-contact-num{background:var(--white);color:#0A0906;font-weight:800;padding:14px 22px;border-radius:50px;font-size:0.9rem;white-space:nowrap}
+@media(max-width:500px){.pill-contact{flex-direction:column;border-radius:20px}.pill-contact-num{width:100%;text-align:center;border-radius:0}}
+/* ── VERRE DÉPOLI (glassmorphism) ──────────────────────────────
+   Badges, pastilles et panneaux translucides avec flou d'arrière-
+   plan, pour laisser respirer les photos et fonds sombres. ────── */
+.glass{background:rgba(255,255,255,0.10);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,0.18)}
+.glass-dark{background:rgba(0,0,0,0.30);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,0.10)}
+.glass-gold{background:rgba(204,152,51,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(204,152,51,0.35);color:var(--gold-l)}
+.glass-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:0.78rem;font-weight:700}
+
+
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:var(--text)}
+h1{font-size:clamp(2rem,4.5vw,3.2rem)}h2{font-size:clamp(1.6rem,3vw,2.4rem)}h3{font-size:1.1rem}
+p{line-height:1.75;color:var(--text-2)}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.section{padding:var(--section-pad) 0}.section-sm{padding:var(--section-pad-sm) 0}
+.sh{text-align:center;max-width:620px;margin:0 auto 64px}.sh h2{margin-bottom:12px}.sh p{font-size:0.95rem;color:var(--text-2)}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+.badge-bronze{background:rgba(204,152,51,0.1);color:var(--gold)}.badge-warm{background:var(--warm);color:var(--text-2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;font-size:0.875rem;font-weight:600;transition:all 0.25s ease;white-space:nowrap;border:1.5px solid transparent}
+.btn-primary{background:var(--gold);color:var(--white);border-color:var(--gold)}.btn-primary:hover{background:var(--gold-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(204,152,51,0.25)}
+.btn-outline{border-color:var(--border);color:var(--text);background:transparent}.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-whatsapp{background:#25D366;color:var(--white);border-color:#25D366}.btn-whatsapp:hover{background:#1EBE5A;transform:translateY(-1px)}
+.btn-dark{background:var(--dark);color:var(--white);border-color:var(--dark)}.btn-dark:hover{background:var(--dark-2);transform:translateY(-1px)}
+
+/* ── ARTISAN BANNER ─────────────────────────────────────────── */
+.artisan-banner{background:var(--gold);padding:10px 0;text-align:center;position:relative;z-index:1001}
+.artisan-banner a{color:var(--white);font-size:0.82rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.2s}
+.artisan-banner a:hover{opacity:0.85}
+.artisan-banner a span{text-decoration:underline}
+
+/* ── NAVIGATION ─────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all 0.3s ease}
+.has-banner .nav{top:40px}
+.nav-solid{background:rgba(255,255,255,0.72);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,0.4);box-shadow:0 1px 8px rgba(0,0,0,0.04)}
+.nav-dark{background:rgba(245,238,220,0.55);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:var(--container);margin:0 auto;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:0}
+.nav-logo img{height:38px;width:auto}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:8px 14px;font-size:0.84rem;font-weight:500;color:var(--text-2);border-radius:8px;transition:all 0.2s}
+.nav-link:hover{color:var(--text);background:rgba(0,0,0,0.04)}
+.nav-link.active{color:var(--gold);font-weight:600}
+.nav-cta{margin-left:12px}
+.nav-dark .nav-link{color:rgba(43,36,23,0.65)}.nav-dark .nav-link:hover{color:var(--sand-ink);background:rgba(0,0,0,0.05)}
+.nav-dark .nav-logo{color:var(--sand-ink)}
+.nav-toggle{display:none;width:40px;height:40px;border-radius:8px;align-items:center;justify-content:center;flex-direction:column}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}.nav-toggle span:nth-child(2){margin:5px 0}
+.nav-dark .nav-toggle span{background:var(--sand-ink)}
+@media(max-width:900px){
+.nav-toggle{display:flex}
+.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--white);flex-direction:column;align-items:stretch;padding:80px 24px 24px;gap:4px;transition:right 0.35s ease;box-shadow:-8px 0 40px rgba(0,0,0,0.1);z-index:999}
+.nav-links.open{right:0}.nav-link{padding:14px 16px;font-size:1rem;border-radius:12px;color:var(--text)!important}
+.nav-cta{margin-left:0;margin-top:12px}.nav-cta .btn{width:100%;justify-content:center}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998}.nav-overlay.open{display:block}
+.artisan-banner{font-size:0.75rem;padding:8px 16px}
+}
+
+/* ── PAGE HERO ──────────────────────────────────────────────── */
+.page-hero{background:var(--dark);padding:140px 0 56px;position:relative;overflow:hidden}
+.has-banner .page-hero{padding-top:160px}
+.page-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(204,152,51,0.12),transparent 60%);pointer-events:none}
+.page-hero-inner{position:relative;z-index:1;max-width:640px}
+.page-hero h1{color:var(--white);margin-bottom:14px}.page-hero p{color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.75}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:20px}
+.breadcrumb a{color:rgba(255,255,255,0.5);transition:color 0.2s}.breadcrumb a:hover{color:var(--gold-l)}
+
+/* ── FAQ ────────────────────────────────────────────────────── */
+.faq-list{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all 0.3s}.faq-item:hover{border-color:rgba(204,152,51,0.2)}
+.faq-q{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text);gap:12px;transition:color 0.2s}.faq-q:hover{color:var(--gold)}
+.faq-q-icon{font-size:1.3rem;color:var(--muted);transition:transform 0.3s;flex-shrink:0}
+.faq-item.open .faq-q-icon{transform:rotate(45deg);color:var(--gold)}
+.faq-a{display:none;padding:0 22px 18px;font-size:0.9rem;color:var(--text-2);line-height:1.75}.faq-item.open .faq-a{display:block}
+
+/* ── FILTERS ────────────────────────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;justify-content:center}
+.filter-btn{padding:9px 20px;border:1.5px solid var(--border);border-radius:50px;font-size:0.82rem;font-weight:600;color:var(--text-2);background:var(--white);transition:all 0.2s;cursor:pointer}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(204,152,51,0.05)}
+
+/* ── ZONE CHIPS ─────────────────────────────────────────────── */
+.zone-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.zone-chip{padding:9px 20px;border:1.5px solid var(--border);border-radius:50px;font-size:0.84rem;font-weight:500;color:var(--text-2);transition:all 0.2s;background:var(--white)}
+.zone-chip:hover,.zone-chip.active{border-color:var(--gold);color:var(--gold);background:rgba(204,152,51,0.05)}
+
+/* ── FIELDS ─────────────────────────────────────────────────── */
+.field{margin-bottom:16px}.field label{display:block;font-size:0.8rem;font-weight:600;color:var(--text-2);margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--cream);font-size:0.9rem;color:var(--text);transition:border-color 0.2s;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}.field textarea{min-height:80px;resize:vertical}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.field-row{grid-template-columns:1fr}}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.footer{background:var(--sand);padding:64px 0 0;border-top:1px solid rgba(0,0,0,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(0,0,0,0.08)}
+.footer-brand{margin-bottom:14px}.footer-brand img{height:32px;width:auto}
+.footer-desc{font-size:0.85rem;color:rgba(43,36,23,0.55);line-height:1.7;margin-bottom:20px;max-width:280px}
+.footer h4{font-size:0.78rem;font-weight:700;color:rgba(43,36,23,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
+.footer-link{display:block;font-size:0.875rem;color:rgba(43,36,23,0.7);padding:5px 0;transition:color 0.2s}.footer-link:hover{color:var(--gold-d)}
+.footer-bottom{padding:24px 0;display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:rgba(43,36,23,0.4)}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:500px){.footer-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ── WA FLOAT ───────────────────────────────────────────────── */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all 0.3s;animation:waPulse 3s infinite}
+.wa-float:hover{transform:scale(1.1)}.wa-float svg{width:28px;height:28px;fill:white}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.35)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.55)}}
+
+/* ── REVEAL ─────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}.reveal-2{transition-delay:0.12s}.reveal-3{transition-delay:0.24s}.reveal-4{transition-delay:0.36s}
+.fade-up{opacity:0;transform:translateY(20px);animation:fadeUp 0.7s ease forwards}.fade-up-2{animation-delay:0.1s}.fade-up-3{animation-delay:0.2s}.fade-up-4{animation-delay:0.3s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* ── BLOG CARDS ─────────────────────────────────────────────── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column}
+.blog-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.blog-card-img{height:200px;overflow:hidden;background:var(--warm)}.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.blog-card-date{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
+.blog-card-body h3{font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4}
+.blog-card-body p{font-size:0.875rem;color:var(--text-2);line-height:1.65;margin-bottom:16px;flex:1}
+.blog-card-link{font-size:0.82rem;font-weight:700;color:var(--gold);display:inline-flex;align-items:center;gap:5px}
+
+/* ── SVC CARDS ──────────────────────────────────────────────── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px 28px;transition:all 0.3s;display:block}
+.svc-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:rgba(204,152,51,0.2)}
+.svc-num{font-family:var(--font-heading);font-size:2rem;font-weight:800;color:rgba(204,152,51,0.1);line-height:1;margin-bottom:16px}.svc-card:hover .svc-num{color:rgba(204,152,51,0.25)}
+.svc-icon{width:48px;height:48px;border-radius:14px;background:rgba(204,152,51,0.07);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.svc-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}.svc-card p{font-size:0.875rem;color:var(--text-2);line-height:1.7;margin-bottom:18px}
+.svc-link{font-size:0.82rem;font-weight:700;color:var(--gold);display:inline-flex;align-items:center;gap:5px;transition:gap 0.2s}.svc-card:hover .svc-link{gap:9px}
+
+/* ── REAL CARDS ──────────────────────────────────────────────── */
+.real-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;transition:all 0.3s;cursor:pointer}
+.real-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.real-img{overflow:hidden;min-height:200px}.real-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}.real-card:hover .real-img img{transform:scale(1.05)}
+.real-body{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.real-tag{display:inline-block;padding:4px 14px;background:rgba(204,152,51,0.08);color:var(--gold);border-radius:50px;font-size:0.72rem;font-weight:700;margin-bottom:12px;width:fit-content}
+.real-body h3{font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.35}
+
+/* ── MOBILE ─────────────────────────────────────────────────── */
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr}.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+:root{--section-pad:56px;--section-pad-sm:40px}.container{padding:0 16px}
+h1{font-size:1.8rem}h2{font-size:1.5rem}
+.page-hero{padding:110px 0 36px}.has-banner .page-hero{padding-top:130px}
+.sh{margin-bottom:32px}.services-grid,.blog-grid{grid-template-columns:1fr}
+.real-card{grid-template-columns:1fr}.real-img{height:200px}
+}
+
+
+
+.config-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:64px 0}
+.config-left{position:sticky;top:120px}
+.config-intro-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(204,152,51,0.1);color:var(--gold);border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px}
+.config-left h1{font-family:var(--font-heading);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--text);line-height:1.15;letter-spacing:-0.02em;margin-bottom:14px}
+.config-left h1 em{font-style:normal;color:var(--gold)}
+.config-left>p{font-size:0.95rem;color:var(--text-2);line-height:1.75;margin-bottom:28px}
+.config-features{display:flex;flex-direction:column;gap:10px}
+.config-feature{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:14px}
+.config-feature-icon{width:36px;height:36px;border-radius:10px;background:rgba(204,152,51,0.07);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.config-feature span{font-size:0.875rem;font-weight:500;color:var(--text)}
+
+/* Chat UI */
+.chat-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 20px 60px rgba(204,152,51,0.08);display:flex;flex-direction:column;height:620px}
+.chat-header{background:var(--dark);padding:18px 22px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.chat-header-avatar{width:40px;height:40px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center}
+.chat-header-avatar svg{width:20px;height:20px}
+.chat-header-info h3{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.chat-header-info p{font-size:0.72rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:5px}
+.chat-online-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block}
+.chat-messages{flex:1;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.chat-messages::-webkit-scrollbar{width:3px}.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.msg{display:flex;gap:10px;max-width:88%;animation:msgIn 0.35s ease both}
+.msg.bot{align-self:flex-start}.msg.user{flex-direction:row-reverse;align-self:flex-end}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.msg-avatar{width:32px;height:32px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;align-self:flex-end}
+.msg.bot .msg-avatar{background:var(--gold);color:var(--white)}.msg.user .msg-avatar{background:var(--dark);color:var(--white)}
+.msg-bubble{padding:13px 17px;border-radius:18px;font-size:0.9rem;line-height:1.7}
+.msg.bot .msg-bubble{background:var(--cream-2);color:var(--text);border-radius:4px 18px 18px 18px}
+.msg.user .msg-bubble{background:var(--gold);color:var(--white);border-radius:18px 4px 18px 18px}
+
+/* Quick reply buttons */
+.quick-replies{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.qr-btn{padding:9px 18px;border-radius:50px;border:1.5px solid var(--border);background:var(--white);font-size:0.82rem;font-weight:600;color:var(--text);cursor:pointer;font-family:inherit;transition:all 0.2s;-webkit-tap-highlight-color:transparent}
+.qr-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(204,152,51,0.04)}
+
+/* Input area */
+.chat-input-area{border-top:1px solid var(--border);padding:14px 18px;flex-shrink:0;background:var(--white)}
+.chat-input-row{display:flex;gap:10px;align-items:flex-end}
+.chat-input{flex:1;padding:12px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:0.9rem;font-family:inherit;color:var(--text);background:var(--cream);outline:none;resize:none;transition:border-color 0.2s;max-height:100px;overflow-y:auto}
+.chat-input:focus{border-color:var(--gold)}
+.chat-send-btn{width:44px;height:44px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.chat-send-btn:hover{background:var(--gold-d);transform:scale(1.05)}
+.chat-send-btn:disabled{background:var(--border);cursor:not-allowed;transform:none}
+.chat-send-btn svg{width:18px;height:18px}
+.chat-disclaimer{font-size:0.7rem;color:var(--muted);text-align:center;margin-top:8px}
+
+/* Typing dots */
+.typing{display:flex;gap:4px;padding:14px 18px;background:var(--cream-2);border-radius:4px 18px 18px 18px;width:fit-content}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:bounce 1.2s infinite}
+.typing span:nth-child(2){animation-delay:0.2s}.typing span:nth-child(3){animation-delay:0.4s}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(-5px);opacity:1}}
+
+/* WhatsApp result button */
+.wa-result-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;cursor:pointer;margin-top:10px;transition:all 0.2s;font-family:inherit}
+.wa-result-btn:hover{background:#1EBE5A;transform:translateY(-1px)}
+
+@media(max-width:900px){.config-wrapper{grid-template-columns:1fr}.config-left{position:static}.chat-box{height:540px}}
+@media(max-width:560px){.chat-box{height:500px}}
+
+/* Dropdown Nav */
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:16px 20px;min-width:220px;box-shadow:0 12px 40px rgba(0,0,0,0.1);z-index:100}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+.dropdown-label{font-size:.68rem;font-weight:700;color:#9A9088;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;padding:4px 0}
+.dropdown-link{display:block;padding:7px 0;font-size:.875rem;color:#5C544A;transition:color .2s}.dropdown-link:hover{color:#CC9833}
+.nav-toggle.is-open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.is-open span:nth-child(2){opacity:0}
+.nav-toggle.is-open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:900px){
+.nav-dropdown-menu{position:static;display:none;box-shadow:none;border:none;padding:0 0 0 16px;min-width:auto;background:transparent}
+.nav-dropdown.open .nav-dropdown-menu{display:block}
+.dropdown-label{margin-top:4px}.dropdown-link{padding:6px 0;font-size:.9rem}
+}
+
+</style>
+</head>
+<body>
+<div id="main-nav"></div>
+
+<section class="page-hero"><div class="container page-hero-inner">
+<div class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Demande de devis</span></div>
+<span class="badge badge-bronze" style="margin-bottom:14px">💬 Devis en ligne</span>
+<h1>Votre devis en<br>quelques clics</h1>
+<p>Répondez à quelques questions, notre assistant prépare votre demande et l'envoie directement à un expert REVO TRAVAUX par WhatsApp.</p>
+</div></section>
+
+<section style="background:var(--cream-2)"><div class="container"><div class="config-wrapper">
+<div class="config-left">
+<div class="config-intro-badge">💬 Simple et rapide</div>
+<h1>Décrivez votre projet,<br>on s'occupe du <em>reste</em></h1>
+<p>Pas d'inscription, pas de formulaire compliqué. Notre assistant vous guide étape par étape et envoie votre demande complète à un expert REVO TRAVAUX par WhatsApp.</p>
+<div class="config-features">
+<div class="config-feature"><div class="config-feature-icon">⚡</div><span>2 minutes chrono</span></div>
+<div class="config-feature"><div class="config-feature-icon">📍</div><span>Adapté au marché martiniquais</span></div>
+<div class="config-feature"><div class="config-feature-icon">💬</div><span>Envoi direct par WhatsApp</span></div>
+<div class="config-feature"><div class="config-feature-icon">🎯</div><span>Réponse expert sous 24h</span></div>
+</div></div>
+
+<div><div class="chat-box" id="chatBox">
+<div class="chat-header"><div class="chat-header-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+<div class="chat-header-info"><h3>Assistant REVO TRAVAUX</h3><p><span class="chat-online-dot"></span> En ligne — 8 questions rapides</p></div></div>
+<div class="chat-messages" id="chatMessages"></div>
+<div class="chat-input-area"><div class="chat-input-row">
+<textarea id="chatInput" class="chat-input" placeholder="Tapez votre réponse ici..." rows="1"></textarea>
+<button class="chat-send-btn" id="sendBtn" onclick="sendMessage()"><svg viewBox="0 0 24 24" fill="white"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg></button>
+</div><div class="chat-disclaimer">Vos informations sont envoyées uniquement par WhatsApp à REVO TRAVAUX</div></div>
+</div></div>
+</div></div></section>
+
+<section style="padding:80px 0;background:var(--dark);text-align:center"><div class="container">
+<h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--white);margin-bottom:14px">Vous préférez appeler ?</h2>
+<p style="font-size:1rem;color:rgba(255,255,255,0.45);margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto">Un expert REVO TRAVAUX est disponible pour discuter de votre projet.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="https://wa.me/596696381215?text=Bonjour%20REVO%20TRAVAUX%2C%20je%20souhaite%20une%20estimation%20gratuite." target="_blank" class="btn btn-primary" style="font-size:1rem;padding:14px 32px">💬 WhatsApp direct</a>
+<a href="tel:+596696381215" class="btn" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.15);font-size:1rem;padding:14px 32px">📞 0696 38 12 15</a>
+</div></div></section>
+
+<div id="main-footer"></div>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   REVO TRAVAUX — shared.js v6
+   ═══════════════════════════════════════════════════════════════ */
+
+const WA_NUMBER = '596696381215';
+const WA_DEFAULT_MSG = 'Bonjour REVO TRAVAUX, je souhaite une étude de devis pour mes travaux en Martinique.';
+const WA_ARTISAN_MSG = 'Bonjour, je suis artisan ou entreprise BTP en Martinique et je souhaite rejoindre le réseau de sous-traitance REVO TRAVAUX.';
+let LOGO_COLOR = 'images/site/web/logo-couleur.png';
+let LOGO_WHITE = 'images/site/web/logo-blanc.png';
+
+/* ── NAVIGATION ─────────────────────────────────────────────── */
+function buildNav(activeSlug) {
+  const isHome = activeSlug === '' || activeSlug === 'index';
+  const navClass = isHome ? 'nav nav-dark' : 'nav nav-solid';
+  const realActive = activeSlug === 'realisations' || activeSlug === 'equipe';
+
+  document.getElementById('main-nav').innerHTML = `
+    <div class="artisan-banner">
+      <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_ARTISAN_MSG)}" target="_blank">
+        🔨 Entreprises &amp; artisans BTP Martinique ? <span>Devenez partenaire sous-traitant →</span>
+      </a>
+    </div>
+    <nav class="${navClass}" id="mainNav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img id="navLogoImg" src="${LOGO_COLOR}" alt="REVO TRAVAUX" height="34"></a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link${activeSlug === '' ? ' active' : ''}">Accueil</a>
+          <div class="nav-dropdown">
+            <a href="services.html" class="nav-link${activeSlug === 'services' ? ' active' : ''}">Services ▾</a>
+            <div class="nav-dropdown-menu">
+              <div class="dropdown-label">RÉALISÉ PAR NOS ÉQUIPES</div>
+              <a href="service-renovation-complete.html" class="dropdown-link">Rénovation complète</a>
+              <a href="service-cuisine.html" class="dropdown-link">Cuisine</a>
+              <a href="service-salle-de-bain.html" class="dropdown-link">Salle de bain</a>
+              <a href="service-electricite.html" class="dropdown-link">Électricité</a>
+              <a href="service-plomberie.html" class="dropdown-link">Plomberie</a>
+              <div class="dropdown-label" style="margin-top:8px">ÉNERGIE</div>
+              <a href="service-renovation-energetique.html" class="dropdown-link">Rénovation énergétique</a>
+              <div class="dropdown-label" style="margin-top:8px">AMO / COURTAGE</div>
+              <a href="services.html#amo" class="dropdown-link">Coordination de chantier</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="realisations.php" class="nav-link${realActive ? ' active' : ''}">Réalisations ▾</a>
+            <div class="nav-dropdown-menu">
+              <a href="realisations.php" class="dropdown-link">Nos chantiers</a>
+              <a href="equipe.html" class="dropdown-link">Notre équipe</a>
+            </div>
+          </div>
+          <a href="blog.php" class="nav-link${activeSlug === 'blog' ? ' active' : ''}">Blog</a>
+          <div class="nav-dropdown">
+            <a href="zones.html" class="nav-link${activeSlug === 'zones' ? ' active' : ''}">Zones ▾</a>
+            <div class="nav-dropdown-menu">
+              <a href="zone-fort-de-france.html" class="dropdown-link">Fort-de-France</a>
+              <a href="zone-le-lamentin.html" class="dropdown-link">Le Lamentin</a>
+              <a href="zone-schoelcher.html" class="dropdown-link">Schoelcher</a>
+              <a href="zone-les-trois-ilets.html" class="dropdown-link">Les Trois-Îlets</a>
+              <a href="zone-le-robert.html" class="dropdown-link">Le Robert</a>
+              <a href="zone-le-marin.html" class="dropdown-link">Le Marin</a>
+              <a href="zones.html" class="dropdown-link" style="color:var(--gold);font-weight:700;margin-top:6px">Voir toutes →</a>
+            </div>
+          </div>
+          <a href="faq.html" class="nav-link${activeSlug === 'faq' ? ' active' : ''}">FAQ</a>
+          <a href="devis-ia.html" class="nav-link${activeSlug === 'devis-ia' ? ' active' : ''}">🤖 Devis</a>
+          <div class="nav-cta">
+            <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_DEFAULT_MSG)}" target="_blank" class="btn btn-primary" style="padding:10px 20px;font-size:0.82rem">Étude de devis gratuite</a>
+          </div>
+        </div>
+        <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+        <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>`;
+
+  document.body.classList.add('has-banner');
+
+  if (isHome) {
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      if (!nav) return;
+      if (window.scrollY > 80) {
+        nav.classList.remove('nav-dark');
+        nav.classList.add('nav-solid');
+      } else {
+        nav.classList.remove('nav-solid');
+        nav.classList.add('nav-dark');
+      }
+    });
+  }
+}
+
+function toggleNav() {
+  const nl = document.getElementById('navLinks');
+  const ov = document.getElementById('navOverlay');
+  const tb = document.getElementById('navToggle');
+  nl.classList.toggle('open');
+  ov.classList.toggle('open');
+  const isOpen = nl.classList.contains('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (tb) tb.classList.toggle('is-open', isOpen);
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  const tb = document.getElementById('navToggle');
+  if (tb) tb.classList.remove('is-open');
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+function buildFooter() {
+  document.getElementById('main-footer').innerHTML = `
+    <footer class="footer"><div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><img src="${LOGO_COLOR}" alt="REVO TRAVAUX" height="30"></div>
+          <p class="footer-desc">Entreprise de rénovation en Martinique. Nos équipes réalisent vos travaux, nous pilotons la sous-traitance quand c'est utile, et coordonnons votre chantier de A à Z. Étude de devis gratuite sous 24h.</p>
+        </div>
+        <div><h4>Services</h4>
+          <a href="service-renovation-complete.html" class="footer-link">Rénovation complète</a>
+          <a href="service-cuisine.html" class="footer-link">Cuisine & salle de bain</a>
+          <a href="service-renovation-energetique.html" class="footer-link">Rénovation énergétique</a>
+          <a href="service-electricite.html" class="footer-link">Électricité & plomberie</a>
+          <a href="services.html" class="footer-link">Tous les services</a>
+        </div>
+        <div><h4>Ressources</h4>
+          <a href="realisations.php" class="footer-link">Réalisations</a>
+          <a href="equipe.html" class="footer-link">Notre équipe</a>
+          <a href="devis-ia.html" class="footer-link">🤖 Étude de devis</a>
+          <a href="blog.php" class="footer-link">Blog</a>
+          <a href="faq.html" class="footer-link">FAQ</a>
+          <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        </div>
+        <div><h4>Contact</h4>
+          <a href="tel:+596696381215" class="footer-link">0696 38 12 15</a>
+          <a href="mailto:contact@revotravaux.fr" class="footer-link">contact@revotravaux.fr</a>
+          <a href="https://wa.me/${WA_NUMBER}" target="_blank" class="footer-link">WhatsApp →</a>
+          <p style="font-size:0.78rem;color:rgba(43,36,23,0.45);margin-top:12px;line-height:1.5">Habitation Case Navire<br>97233 Schoelcher, Martinique</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${new Date().getFullYear()} REVO TRAVAUX</span>
+        <span>Martinique · French Caribbean</span>
+      </div>
+    </div></footer>`;
+}
+
+/* ── WHATSAPP FLOAT ─────────────────────────────────────────── */
+function addWA(msg) {
+  const text = msg || WA_DEFAULT_MSG;
+  document.body.insertAdjacentHTML('beforeend', `
+    <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}" target="_blank" class="wa-float" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>`);
+}
+
+/* ── LOCAL SEO SCHEMA (JSON-LD) ────────────────────────────────
+   Injecté sur chaque page pour le référencement local :
+   rénovation Martinique, courtage travaux Martinique, étude de devis. */
+function injectSchema() {
+  if (document.getElementById('revo-schema')) return;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://revotravaux.fr/#organization",
+    "name": "REVO TRAVAUX",
+    "alternateName": "Revo Travaux Martinique",
+    "url": "https://revotravaux.fr/",
+    "logo": "https://revotravaux.fr/images/site/web/logo-couleur.png",
+    "image": "https://revotravaux.fr/og-image.jpg",
+    "description": "REVO TRAVAUX réalise vos travaux de rénovation en Martinique avec ses propres équipes, pilote la sous-traitance d'artisans certifiés et coordonne votre chantier de A à Z (AMO). Étude de devis gratuite sous 24h.",
+    "telephone": "+596696381215",
+    "email": "contact@revotravaux.fr",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Habitation Case Navire",
+      "addressLocality": "Schoelcher",
+      "postalCode": "97233",
+      "addressRegion": "Martinique",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Fort-de-France","Le Lamentin","Schoelcher","Saint-Joseph","Le Robert","Le François","Sainte-Marie","Le Marin","Les Trois-Îlets","Le Diamant","Sainte-Anne","Le Vauclin","La Trinité","Rivière-Pilote","Ducos"],
+    "sameAs": []
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.id = 'revo-schema';
+  s.textContent = JSON.stringify(schema);
+  document.head.appendChild(s);
+}
+
+/* ── REVEAL ON SCROLL ───────────────────────────────────────── */
+function initReveals() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', initReveals);
+if (document.readyState !== 'loading') initReveals();
+
+/* ── FAQ ACCORDION ──────────────────────────────────────────── */
+document.addEventListener('click', e => {
+  const q = e.target.closest('.faq-q');
+  if (!q) return;
+  const item = q.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  item.closest('.faq-list')?.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+});
+
+/* ── FILTERS ────────────────────────────────────────────────── */
+function initFilters(btnClass, dataAttr) {
+  document.querySelectorAll('.' + btnClass).forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.' + btnClass).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter || btn.getAttribute('data-filter');
+      document.querySelectorAll('[' + dataAttr + ']').forEach(card => {
+        card.style.display = (filter === 'all' || card.getAttribute(dataAttr) === filter) ? '' : 'none';
+      });
+    });
+  });
+}
+</script>
+<script>buildNav('devis-ia');buildFooter();addWA();injectSchema();</script>
+<script>
+const messagesEl = document.getElementById('chatMessages');
+const inputEl = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+
+// ── CONVERSATION FLOW ───────────────────────────────────────
+// Each step: question text, quick replies (optional), data key to store
+const STEPS = [
+  {
+    q: "Bonjour ! 👋 Je vais vous aider à préparer votre demande de devis.\n\nQuel type de travaux souhaitez-vous réaliser ?",
+    replies: ["🏠 Rénovation complète","🍳 Cuisine","🛁 Salle de bain","⚡ Électricité","🚰 Plomberie","🌿 Isolation / énergie","🌴 Élagage","📋 Autre"],
+    key: "type"
+  },
+  {
+    q: "Dans quelle commune en Martinique se situe votre projet ?",
+    replies: ["Fort-de-France","Le Lamentin","Schoelcher","Les Trois-Îlets","Le Robert","Autre commune"],
+    key: "commune"
+  },
+  {
+    q: "Quelle est la surface approximative concernée ?",
+    replies: ["Moins de 30m²","30 à 60m²","60 à 100m²","Plus de 100m²","Je ne sais pas"],
+    key: "surface"
+  },
+  {
+    q: "Pouvez-vous décrire votre projet en quelques mots ?\n\nPar exemple : « Rénovation complète d'un appartement T3 avec nouvelle cuisine et salle de bain »",
+    replies: [],
+    key: "description"
+  },
+  {
+    q: "Quel est votre budget approximatif ?",
+    replies: ["Moins de 10 000€","10 000 – 25 000€","25 000 – 50 000€","50 000 – 100 000€","Plus de 100 000€","Pas encore défini"],
+    key: "budget"
+  },
+  {
+    q: "Quel est votre calendrier souhaité pour démarrer les travaux ?",
+    replies: ["Le plus vite possible","Dans 1 à 3 mois","Dans 3 à 6 mois","Pas de rush"],
+    key: "calendrier"
+  },
+  {
+    q: "Dernière étape ! Quel est votre prénom ? 😊",
+    replies: [],
+    key: "prenom"
+  },
+  {
+    q: "Et votre numéro de téléphone pour que notre expert puisse vous recontacter ?",
+    replies: [],
+    key: "telephone"
+  }
+];
+
+let currentStep = 0;
+let formData = {};
+let waitingInput = false;
+
+function addBotMsg(text, replies = []) {
+  // Typing delay
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'msg bot';
+  typingDiv.id = 'typing';
+  typingDiv.innerHTML = `<div class="msg-avatar">RT</div><div class="typing"><span></span><span></span><span></span></div>`;
+  messagesEl.appendChild(typingDiv);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+
+  setTimeout(() => {
+    typingDiv.remove();
+    const msg = document.createElement('div');
+    msg.className = 'msg bot';
+    const av = document.createElement('div');
+    av.className = 'msg-avatar';
+    av.textContent = 'RT';
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = text.replace(/\n/g, '<br>');
+
+    if (replies.length > 0) {
+      const qr = document.createElement('div');
+      qr.className = 'quick-replies';
+      replies.forEach(label => {
+        const btn = document.createElement('button');
+        btn.className = 'qr-btn';
+        btn.textContent = label;
+        btn.onclick = () => {
+          handleUserInput(label.replace(/^[^\w\sÀ-ÿ]+\s*/u, ''));
+          qr.remove();
+        };
+        qr.appendChild(btn);
+      });
+      bubble.appendChild(qr);
+    }
+
+    msg.appendChild(av);
+    msg.appendChild(bubble);
+    messagesEl.appendChild(msg);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    waitingInput = true;
+  }, 600 + Math.random() * 400);
+}
+
+function addUserMsg(text) {
+  const msg = document.createElement('div');
+  msg.className = 'msg user';
+  const av = document.createElement('div');
+  av.className = 'msg-avatar';
+  av.textContent = 'Moi';
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+  msg.appendChild(bubble);
+  msg.appendChild(av);
+  messagesEl.appendChild(msg);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+function handleUserInput(text) {
+  if (!waitingInput || !text.trim()) return;
+  waitingInput = false;
+
+  addUserMsg(text);
+
+  // Store the answer
+  const step = STEPS[currentStep];
+  formData[step.key] = text;
+  currentStep++;
+
+  // Next step or finish
+  setTimeout(() => {
+    if (currentStep < STEPS.length) {
+      const next = STEPS[currentStep];
+      addBotMsg(next.q, next.replies);
+    } else {
+      showFinalMessage();
+    }
+  }, 300);
+}
+
+function showFinalMessage() {
+  const waMsg = `Bonjour REVO TRAVAUX,
+
+Je souhaite un devis pour mes travaux :
+
+🔨 Type : ${formData.type || 'Non précisé'}
+📍 Commune : ${formData.commune || 'Non précisé'}
+📐 Surface : ${formData.surface || 'Non précisé'}
+📝 Description : ${formData.description || 'Non précisé'}
+💰 Budget : ${formData.budget || 'Non précisé'}
+📅 Calendrier : ${formData.calendrier || 'Non précisé'}
+
+👤 Prénom : ${formData.prenom || ''}
+📞 Téléphone : ${formData.telephone || ''}
+
+Merci !`;
+
+  const waUrl = 'https://wa.me/596696381215?text=' + encodeURIComponent(waMsg);
+
+  const summaryHtml = `Parfait <strong>${formData.prenom || ''}</strong> ! Voici le récapitulatif de votre demande :<br><br>
+🔨 <strong>${formData.type || ''}</strong><br>
+📍 ${formData.commune || ''} · 📐 ${formData.surface || ''}<br>
+📝 ${formData.description || ''}<br>
+💰 ${formData.budget || ''} · 📅 ${formData.calendrier || ''}<br><br>
+Cliquez sur le bouton ci-dessous pour envoyer votre demande directement à notre expert par WhatsApp :
+<br><button class="wa-result-btn" onclick="window.open('${waUrl.replace(/'/g, "\\'")}','_blank')">💬 Envoyer sur WhatsApp</button>`;
+
+  addBotMsg(summaryHtml);
+}
+
+// Handle text input
+function sendMessage() {
+  const text = inputEl.value.trim();
+  if (!text) return;
+  inputEl.value = '';
+  inputEl.style.height = 'auto';
+  handleUserInput(text);
+}
+
+inputEl.addEventListener('input', () => {
+  inputEl.style.height = 'auto';
+  inputEl.style.height = Math.min(inputEl.scrollHeight, 100) + 'px';
+});
+inputEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+
+// Start conversation
+addBotMsg(STEPS[0].q, STEPS[0].replies);
+</script>
+<script>
+// Mobile dropdown toggle
+document.addEventListener('click', function(e) {
+  var trigger = e.target.closest('.nav-dropdown > .nav-link');
+  if (!trigger) return;
+  if (window.innerWidth <= 900) {
+    e.preventDefault();
+    var dd = trigger.closest('.nav-dropdown');
+    dd.classList.toggle('open');
+  }
+});
+</script>
+</body></html>
