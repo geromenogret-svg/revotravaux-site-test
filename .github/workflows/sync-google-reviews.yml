@@ -1,0 +1,44 @@
+name: Sync Google Reviews
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Sync reviews
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GBP_ACCOUNT_ID: ${{ secrets.GBP_ACCOUNT_ID }}
+          GBP_LOCATION_ID: ${{ secrets.GBP_LOCATION_ID }}
+          GOOGLE_REVIEWS_PUBLIC_URL: ${{ vars.GOOGLE_REVIEWS_PUBLIC_URL }}
+          REVIEWS_MIN_RATING: '4'
+        run: node scripts/sync-google-reviews.mjs
+
+      - name: Commit updated cache
+        run: |
+          if git diff --quiet -- data/reviews.json; then
+            echo "No review changes"
+            exit 0
+          fi
+          git config user.name "REVO Reviews Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/reviews.json
+          git commit -m "Auto: mise à jour des avis Google"
+          git push
