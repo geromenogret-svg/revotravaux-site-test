@@ -1,0 +1,10 @@
+{
+  "summary":{"rating":"5,0","count":3},
+  "minRating":4,
+  "reviewUrl":"https://www.google.com/search?q=REVO+TRAVAUX+Martinique+avis",
+  "reviews":[
+    {"author":"Samuel Careto","rating":5,"comment":"J'ai beaucoup apprécié la réactivité, la capacité à trouver des solutions aux problèmes rencontrés sur le chantier, et la rapidité d'exécution. Je recommande REVO TRAVAUX si vous souhaitez faire des travaux sans prise de tête.","createTime":"2026-05-15"},
+    {"author":"Walnut L.","rating":5,"comment":"Du très bon boulot de la part de cette société, rapide et efficace. Mention spéciale pour le conducteur de travaux Angelo.","createTime":"2026-06-15"},
+    {"author":"Arnaud Delsart","rating":5,"comment":"Équipe à l'écoute et sérieuse. Suivi du chantier rigoureux.","createTime":"2026-05-20"}
+  ]
+}
