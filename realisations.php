@@ -3,7 +3,14 @@
    REVO TRAVAUX — realisations.php
    
    Scanne automatiquement realisations/*.html
-   Chaque réalisation doit avoir ces meta dans son <head> :
+   Chaque réalisation doit avoir ces meta dans son <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RPQHRD5');</script>
+<!-- End Google Tag Manager --> :
      <meta name="project-date" content="2025-04-15">
      <meta name="project-cat" content="renovation-complete">
      <meta name="project-summary" content="Description courte...">
@@ -95,6 +102,10 @@ $cat_short = [
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RPQHRD5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div id="main-nav"></div>
 
 <section class="page-hero"><div class="container page-hero-inner">
