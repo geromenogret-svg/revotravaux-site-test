@@ -3,23 +3,7 @@
    REVO TRAVAUX — realisations.php
    
    Scanne automatiquement realisations/*.html
-   Chaque réalisation doit avoir ces meta dans son <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5RPQHRD5');</script>
-<!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VQVNMTBHNY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VQVNMTBHNY');
-</script> :
+   Chaque réalisation doit avoir ces meta dans son <head> :
      <meta name="project-date" content="2025-04-15">
      <meta name="project-cat" content="renovation-complete">
      <meta name="project-summary" content="Description courte...">
@@ -32,6 +16,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    Copier realisations/_TEMPLATE.html → realisations/mon-projet.html
    Modifier les meta + le contenu. C'est tout.
    ═══════════════════════════════════════════════════════════════ */
+
+/* ── Chantiers réels publiés depuis REVO Pilotage (4 photos au plus chacun, sans nom de client ni position) ──
+   Lus côté serveur, gardés 10 minutes en cache. Si l'app ne répond pas, la page s'affiche sans eux. */
+function revo_site_projects() {
+    $cache = sys_get_temp_dir() . '/revo-site-realisations.json';
+    if (is_file($cache) && time() - filemtime($cache) < 600) {
+        $d = json_decode((string) @file_get_contents($cache), true);
+        if (is_array($d)) return $d;
+    }
+    $url = (getenv('REVO_PILOTAGE_URL') ?: 'https://pilotage.revotravaux.fr') . '/api/public/site';
+    $raw = false;
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 4, CURLOPT_CONNECTTIMEOUT => 3]);
+        $raw = curl_exec($ch);
+        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) $raw = false;
+        curl_close($ch);
+    } else {
+        $raw = @file_get_contents($url, false, stream_context_create(['http' => ['timeout' => 4]]));
+    }
+    $d = $raw ? json_decode($raw, true) : null;
+    if (is_array($d) && isset($d['projects'])) {
+        @file_put_contents($cache, $raw);
+        return $d;
+    }
+    // App injoignable : on garde l'ancienne liste si elle existe
+    $old = is_file($cache) ? json_decode((string) @file_get_contents($cache), true) : null;
+    return is_array($old) ? $old : ['projects' => [], 'vitrine' => null];
+}
+$live = revo_site_projects();
+$live_projects = $live['projects'] ?? [];
+$vitrine_url = $live['vitrine'] ?? null;
 
 $projects = [];
 $dir = __DIR__ . '/realisations/';
@@ -88,6 +104,22 @@ $cat_short = [
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RPQHRD5');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VQVNMTBHNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VQVNMTBHNY');
+</script>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -107,6 +139,22 @@ $cat_short = [
 <style>
 <?php include __DIR__ . '/style.css'; ?>
 
+/* Chantiers réels (REVO Pilotage) */
+.live-head{text-align:center;max-width:640px;margin:0 auto 32px}.live-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin:12px 0 8px}.live-head p{color:var(--text-2)}
+.live-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.live-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden}
+.live-photos{display:grid;gap:3px;grid-template-columns:2fr 1fr;grid-auto-rows:120px;aspect-ratio:auto}
+.live-photos.n1{grid-template-columns:1fr;grid-auto-rows:280px}.live-photos.n2{grid-template-columns:1fr 1fr;grid-auto-rows:240px}
+.live-photos.n3 .live-ph:first-child,.live-photos.n4 .live-ph:first-child{grid-row:span 2}
+.live-photos.n4{grid-template-columns:2fr 1fr 1fr}.live-photos.n4 .live-ph:nth-child(4){grid-column:2/4}
+.live-ph{padding:0;border:0;background:var(--warm);cursor:zoom-in;overflow:hidden;display:block}
+.live-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.live-ph:hover img{transform:scale(1.04)}
+.live-body{padding:20px 24px 22px}.live-tags{display:flex;flex-wrap:wrap;gap:6px}.live-tags .real-tag{margin-bottom:8px}
+.live-body h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}.live-where{font-size:.8rem;color:var(--muted);font-weight:600}
+.live-more{display:inline-flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;margin-top:12px;font-weight:700;font-size:.88rem;color:var(--gold);text-decoration:none}.live-more span{font-weight:500;font-size:.78rem;color:var(--muted)}
+.live-box{position:fixed;inset:0;z-index:9999;background:rgba(10,10,10,.92);display:flex;align-items:center;justify-content:center;padding:20px}.live-box[hidden]{display:none}
+.live-box img{max-width:100%;max-height:100%;border-radius:8px}.live-x{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:1.2rem;cursor:pointer}
+@media(max-width:800px){.live-grid{grid-template-columns:1fr}.live-photos{grid-auto-rows:100px}}
 @media(max-width:800px){#real-grid{grid-template-columns:1fr!important}.real-card{grid-template-columns:1fr}.real-img{height:200px}}
 </style>
 </head>
@@ -123,6 +171,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h1>Nos <span class="highlight">réalisations</span><br>en Martinique</h1>
 <p>Rénovations complètes, cuisines, salles de bain, travaux énergétiques : réalisées en interne ou en sous-traitance pilotée, coordonnées de bout en bout.</p>
 </div></section>
+
+<?php if ($live_projects): ?>
+<section class="section live-real"><div class="container">
+<div class="live-head reveal">
+<span class="badge badge-bronze">📸 Photos de nos chantiers</span>
+<h2>Nos derniers chantiers, en vraies photos</h2>
+<p>Prises sur place par nos équipes, avec l’accord de nos clients.</p>
+</div>
+<div class="live-grid">
+<?php foreach ($live_projects as $lp):
+  $where = trim(($lp['city'] ?? '') . (!empty($lp['year']) ? ' · ' . $lp['year'] : ''), ' ·');
+  $n = count($lp['photos']); ?>
+<article class="live-card reveal">
+<div class="live-photos n<?= $n ?>">
+<?php foreach ($lp['photos'] as $i => $ph): ?>
+<button type="button" class="live-ph" data-full="<?= htmlspecialchars($ph['l']) ?>" aria-label="Agrandir la photo <?= $i + 1 ?>"><img src="<?= htmlspecialchars($ph['s']) ?>" alt="<?= htmlspecialchars($lp['title'] . ($where ? ' — ' . $where : '')) ?>" loading="lazy"></button>
+<?php endforeach; ?>
+</div>
+<div class="live-body">
+<div class="live-tags"><?php foreach (array_slice($lp['tags'] ?: [$lp['title']], 0, 3) as $t): ?><span class="real-tag"><?= htmlspecialchars($t) ?></span><?php endforeach; ?></div>
+<h3><?= htmlspecialchars($lp['title']) ?></h3>
+<?php if ($where): ?><p class="live-where">📍 <?= htmlspecialchars($where) ?></p><?php endif; ?>
+<?php if (!empty($lp['more']) && $vitrine_url): ?><a class="live-more" href="<?= htmlspecialchars($vitrine_url) ?>" target="_blank" rel="noopener">Voir tout le chantier 🔒 <span>sur code, demandez-le-nous</span></a><?php endif; ?>
+</div>
+</article>
+<?php endforeach; ?>
+</div>
+</div></section>
+<div class="live-box" id="live-box" hidden><button type="button" class="live-x" aria-label="Fermer">✕</button><img alt=""></div>
+<?php endif; ?>
 
 <section class="section" style="background:var(--cream-2)"><div class="container">
 
@@ -160,6 +238,10 @@ foreach($projects as $p): $tag = $cats[$p['cat']] ?? $p['cat']; ?>
 <?php include __DIR__ . '/shared.js'; ?>
 </script>
 <script>buildNav('realisations');buildFooter();addWA();injectSchema();
+(function(){var box=document.getElementById('live-box');if(!box)return;var img=box.querySelector('img');
+document.querySelectorAll('.live-ph').forEach(function(b){b.addEventListener('click',function(){img.src=b.dataset.full;img.alt=b.querySelector('img').alt;box.hidden=false;});});
+function close(){box.hidden=true;img.removeAttribute('src');}
+box.addEventListener('click',function(e){if(e.target!==img)close();});document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});})();
 function filterReal(cat,btn){
 document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
 btn.classList.add('active');
